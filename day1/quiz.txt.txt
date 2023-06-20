@@ -1,0 +1,9 @@
+1. Java Enterprise Edition
+2. Boilerplate codes are simple/basic line/s of codes that are repetitive/redundant. 
+3. Spring Framework
+4. Pivotal Team
+5. https://start.spring.io/
+6. A standalone web project/application is a self-contained java application that can be run without the need for a webserver.
+7-9. Dependency injection is a design that basically allows projects/developments to not be dependent on the creation of other classes. 
+This allows the code to be easier to test, maintain, and reuse in the long run as you are not highly dependent on other classes.
+10. mvn spring-boot:run / mvn clean spring-boot:run
