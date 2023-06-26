@@ -11,6 +11,7 @@ import java.util.UUID;
 public class AccountService {
 
     private List<Account> accounts = new ArrayList<>();
+//    Create IdGeneratorService variable
     private final IdGeneratorService idGeneratorService;
 
     public AccountService(IdGeneratorService idGeneratorService) {
@@ -41,6 +42,7 @@ public class AccountService {
         return account;
     }
 
+//    Implementation of PutMapping, update specific account using StringId as identifier and the other four variables to be updated in the account
     public void update(String accountId, String firstName, String lastName, String username, String clearPassword){
         Account account = get(accountId);
 
@@ -54,6 +56,7 @@ public class AccountService {
         accounts.set(accounts.indexOf(account), account);
     }
 
+//    Implementation of DeleteMapping, remove account in the accounts list using accountId
     public void delete(String accountId){
         accounts.remove(get(accountId));
     }

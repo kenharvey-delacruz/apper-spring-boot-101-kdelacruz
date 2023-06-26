@@ -17,6 +17,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
+//    PostMapping for creating account
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CreateAccountResponse createAccount(@RequestBody CreateAccountRequest request) {
@@ -29,6 +30,7 @@ public class AccountController {
         return response;
     }
 
+//    PutMapping for updating account
     @PutMapping("{accountId}")
     @ResponseStatus(HttpStatus.OK)
     public UpdateAccountResponse updateAccount(@PathVariable String accountId, @RequestBody UpdateAccountRequest request) {
@@ -45,6 +47,7 @@ public class AccountController {
         return response;
     }
 
+//    GetMapping for retrieving a specific account using accountId
     @GetMapping("{accountId}")
     public GetAccountResponse getAccount(@PathVariable String accountId) {
         Account account = accountService.get(accountId);
@@ -60,6 +63,7 @@ public class AccountController {
         return response;
     }
 
+//    GetMapping for retrieving all accounts using for loop
     @GetMapping
     public List<GetAccountResponse> getAllAccounts() {
         List<GetAccountResponse> responseList = new ArrayList<>();
@@ -78,6 +82,7 @@ public class AccountController {
         return responseList;
     }
 
+//    DeleteMapping for deleting specific account using accountId
     @DeleteMapping("{accountId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAccount(@PathVariable String accountId) {
