@@ -1,5 +1,7 @@
 Spring Boot | Laboratory 1
 
+EMAIL SUBJECT: [Spring Boot 101 | Lab] <name>
+
 ID Generator Service
 1. Create `IdGeneratorService` with `generateRandomCharacters(int length)` and `getNextId()`. Make this a spring bean.
 2. Use `generateRandomCharacters` for generating verificationCode (size: 6)
@@ -41,4 +43,11 @@ Delete account
     204 NO CONTENT
 
 
-All are happy flow. No validation. So have an extra caution with invalid inputs like account is not yet regsitered.
+All are happy flow. No validation. So have an extra caution with invalid inputs like account is not yet registered.
+
+For all who opt to submit the laboratory up until 11:59PM:
+1. In creating an account, validate if the username is already registered. If yes, throw an exception `UsernameAlreadyRegisteredException.class`.
+2. In retrieving an account, validate if the account_id exist. If no, throw an exception `AccountNotFoundException.class`.
+
+Note: Testing the validations should return 400 and 404 HTTP response respectively. This is already being handled by the exceptions.
+

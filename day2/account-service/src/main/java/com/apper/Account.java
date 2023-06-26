@@ -17,4 +17,5 @@ public class Account {
 
     private LocalDateTime creationDate;
     private LocalDateTime lastUpdated;
+
 }
