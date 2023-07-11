@@ -4,6 +4,8 @@ import com.apper.theblogservice.model.Blogger;
 import com.apper.theblogservice.repository.BloggerRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class BloggerService {
 
@@ -13,8 +15,7 @@ public class BloggerService {
         this.bloggerRepository = bloggerRepository;
     }
 
-
-    public Blogger createBlogger(String email, String name, String password){
+    public Blogger createBlogger(String email, String name, String password) {
         Blogger blogger = new Blogger();
         blogger.setEmail(email);
         blogger.setName(name);
@@ -22,4 +23,11 @@ public class BloggerService {
 
         return bloggerRepository.save(blogger);
     }
+
+    public Blogger getBlogger(String id) {
+        Optional<Blogger> bloggerResult = bloggerRepository.findById(id);
+
+        return bloggerResult.get();
+    }
+
 }

@@ -1,3 +1,4 @@
+com/apper/theblogservice/payload/BloggerDetails.class
 com/apper/theblogservice/model/Blogger.class
 com/apper/theblogservice/BloggerApi.class
 com/apper/theblogservice/App.class
