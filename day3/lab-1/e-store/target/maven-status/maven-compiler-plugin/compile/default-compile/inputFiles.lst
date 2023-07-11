@@ -1,4 +1,8 @@
-/Users/kenharvey.delacruz/Desktop/Java/day3/e-store/src/main/java/com/apper/estore/CreateUserRequest.java
-/Users/kenharvey.delacruz/Desktop/Java/day3/e-store/src/main/java/com/apper/estore/App.java
-/Users/kenharvey.delacruz/Desktop/Java/day3/e-store/src/main/java/com/apper/estore/CreateUserResponse.java
-/Users/kenharvey.delacruz/Desktop/Java/day3/e-store/src/main/java/com/apper/estore/UserApi.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/ServiceExceptionHandler.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/model/User.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/UserApi.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/payload/CreateUserRequest.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/payload/ServiceError.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/payload/CreateUserResponse.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/InvalidUserAgeException.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day3/lab-1/e-store/src/main/java/com/apper/estore/App.java
