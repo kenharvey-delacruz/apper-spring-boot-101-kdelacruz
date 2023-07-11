@@ -1,12 +1,10 @@
 package com.apper.theblogservice;
 
+import com.apper.theblogservice.exceptions.EmailAlreadyRegisteredException;
 import com.apper.theblogservice.payload.ServiceError;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 
 @ControllerAdvice
 public class ServiceExceptionHandler {
@@ -21,15 +19,12 @@ public class ServiceExceptionHandler {
                 .orElse(new ServiceError("Unknown invalid argument encountered"));
     }
 
-
-    @ExceptionHandler(NoSuchElementFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> handleNoSuchElementFoundException(
-            NoSuchElementFoundException exception
-    ) {
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(exception.getMessage());
+    @ExceptionHandler(EmailAlreadyRegisteredException.class)
+    @ResponseBody
+    public ServiceError handleEmailAlreadyRegisteredException(EmailAlreadyRegisteredException ex) {
+        return new ServiceError(ex.getMessage());
     }
+
 
 }

@@ -14,4 +14,5 @@ public class BloggerDetails {
 
     @JsonProperty("date_registration")
     private LocalDateTime dateRegistration;
+
 }

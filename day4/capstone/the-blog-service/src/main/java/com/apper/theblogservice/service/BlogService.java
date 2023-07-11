@@ -1,9 +1,12 @@
 package com.apper.theblogservice.service;
 
+import com.apper.theblogservice.exceptions.EmailAlreadyRegisteredException;
 import com.apper.theblogservice.model.Blog;
-import com.apper.theblogservice.model.Blogger;
 import com.apper.theblogservice.repository.BlogRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BlogService {
@@ -21,4 +24,16 @@ public class BlogService {
 
         return blogRepository.save(blog);
     }
+
+    public Blog getBlog(String id) throws EmailAlreadyRegisteredException {
+        Optional<Blog> blogResult = blogRepository.findById(id);
+
+        return blogResult.get();
+    }
+
+    public List<Blog> getAllBlogs() {
+
+        return (List<Blog>)blogRepository.findAll();
+    }
+
 }

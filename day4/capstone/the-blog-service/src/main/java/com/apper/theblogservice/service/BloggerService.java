@@ -1,6 +1,6 @@
 package com.apper.theblogservice.service;
 
-import com.apper.theblogservice.NoSuchElementFoundException;
+import com.apper.theblogservice.exceptions.EmailAlreadyRegisteredException;
 import com.apper.theblogservice.model.Blogger;
 import com.apper.theblogservice.repository.BloggerRepository;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,17 @@ public class BloggerService {
         return bloggerRepository.save(blogger);
     }
 
-    public Blogger getBlogger(String id) throws NoSuchElementFoundException {
+    public boolean isEmailRegistered(String email) {
+        Iterable<Blogger> bloggers = bloggerRepository.findAll();
+        for (Blogger blogger : bloggers) {
+            if (email.equals(blogger.getEmail())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Blogger getBlogger(String id) throws EmailAlreadyRegisteredException {
         Optional<Blogger> bloggerResult = bloggerRepository.findById(id);
 
         return bloggerResult.get();
