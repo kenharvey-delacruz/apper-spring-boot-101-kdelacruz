@@ -45,7 +45,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blogger/{id}")
-    public BloggerDetails getBlogger(@PathVariable String id) throws EmailAlreadyRegisteredException {
+    public BloggerDetails getBlogger(@PathVariable String id) {
 
         Blogger blogger = bloggerService.getBlogger(id);
 
@@ -92,7 +92,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blog/{id}")
-    public BlogDetails getBlog(@PathVariable String id) throws EmailAlreadyRegisteredException {
+    public BlogDetails getBlog(@PathVariable String id) {
 
         Blog blog = blogService.getBlog(id);
 
@@ -112,7 +112,7 @@ public class BloggerApi {
 
         for (Blog blog : blogService.getAllBlogs()) {
             BlogDetails blogDetails = new BlogDetails();
-            blogDetails.setBlogger_id(blog.getId());
+            blogDetails.setBlogger_id(blog.getBlogger_id());
             blogDetails.setTitle(blog.getTitle());
             blogDetails.setBody(blog.getBody());
             blogDetails.setCreatedAt(blog.getCreatedAt());
@@ -120,6 +120,26 @@ public class BloggerApi {
             blogList.add(blogDetails);
         }
 
+        return blogList;
+    }
+
+    @GetMapping("/blog/blogger/{blogger_id}")
+    public List<BlogDetails> getAllBlogsByBlogger(@PathVariable String blogger_id) {
+
+        List<BlogDetails> blogList = new ArrayList<>();
+
+        for (Blog blog : blogService.getAllBlogs()) {
+            System.out.println("Getting blogs");
+            if (blog.getBlogger_id().equals(blogger_id)) {
+                System.out.println("Blogger id matched");
+                BlogDetails blogDetails = new BlogDetails();
+                blogDetails.setTitle(blog.getTitle());
+                blogDetails.setBody(blog.getBody());
+                blogDetails.setCreatedAt(blog.getCreatedAt());
+                blogDetails.setLastUpdated(blog.getLastUpdate());
+                blogList.add(blogDetails);
+            }
+        }
         return blogList;
     }
 
