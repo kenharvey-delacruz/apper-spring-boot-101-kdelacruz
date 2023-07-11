@@ -1,0 +1,8 @@
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/BloggerApi.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/repository/BloggerRepository.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/payload/BloggerDetails.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/model/Blogger.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/payload/CreateBloggerResponse.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/service/BloggerService.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/App.java
+/Users/kenharvey.delacruz/Documents/GitHub/apper-spring-boot-101-kdelacruz/day4/the-blog-service/src/main/java/com/apper/theblogservice/payload/CreateBloggerRequest.java
