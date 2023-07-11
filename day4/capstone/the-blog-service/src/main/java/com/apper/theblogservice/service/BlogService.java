@@ -5,6 +5,7 @@ import com.apper.theblogservice.model.Blog;
 import com.apper.theblogservice.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,19 @@ public class BlogService {
     public List<Blog> getAllBlogs() {
 
         return (List<Blog>)blogRepository.findAll();
+    }
+
+    public Blog updateBlog(String blog_id, String title, String body){
+
+        Optional<Blog> blogResult = blogRepository.findById(blog_id);
+
+        Blog blog = blogResult.get();
+
+        blog.setTitle(title);
+        blog.setBody(body);
+        blog.setLastUpdate(LocalDateTime.now());
+
+        return blogRepository.save(blog);
     }
 
 }

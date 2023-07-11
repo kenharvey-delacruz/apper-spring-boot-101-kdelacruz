@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class BloggerApi {
     }
 
 
+
     @PostMapping("/blog")
     @ResponseStatus(HttpStatus.CREATED)
     public CreateBlogResponse createBlog(@RequestBody @Valid CreateBlogRequest request){
@@ -91,13 +93,31 @@ public class BloggerApi {
         return response;
     }
 
+    @PutMapping("/blog/{blog_id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UpdateBlogResponse updateBlog(@PathVariable String blog_id, @RequestBody UpdateBlogRequest request) {
+
+        blogService.updateBlog(blog_id,
+            request.getTitle(),
+            request.getBody());
+
+        Blog blog = blogService.getBlog(blog_id);
+        UpdateBlogResponse response = new UpdateBlogResponse();
+        response.setId(blog_id);
+        response.setBlogger_id(blog.getBlogger_id());
+        response.setCreated_at(blog.getCreatedAt());
+        response.setLast_updated(LocalDateTime.now());
+
+        return response;
+    }
+
     @GetMapping("/blog/{id}")
     public BlogDetails getBlog(@PathVariable String id) {
 
         Blog blog = blogService.getBlog(id);
 
         BlogDetails blogDetails = new BlogDetails();
-        blogDetails.setBlogger_id(blog.getId());
+        blogDetails.setBlogger_id(blog.getBlogger_id());
         blogDetails.setTitle(blog.getTitle());
         blogDetails.setBody(blog.getBody());
         blogDetails.setCreatedAt(blog.getCreatedAt());
@@ -129,10 +149,9 @@ public class BloggerApi {
         List<BlogDetails> blogList = new ArrayList<>();
 
         for (Blog blog : blogService.getAllBlogs()) {
-            System.out.println("Getting blogs");
             if (blog.getBlogger_id().equals(blogger_id)) {
-                System.out.println("Blogger id matched");
                 BlogDetails blogDetails = new BlogDetails();
+                blogDetails.setBlogger_id(blogger_id);
                 blogDetails.setTitle(blog.getTitle());
                 blogDetails.setBody(blog.getBody());
                 blogDetails.setCreatedAt(blog.getCreatedAt());
