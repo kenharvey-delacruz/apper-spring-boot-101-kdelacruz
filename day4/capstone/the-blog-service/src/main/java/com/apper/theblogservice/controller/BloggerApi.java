@@ -46,6 +46,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blogger/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public BloggerDetails getBlogger(@PathVariable String id) {
 
         Blogger blogger = bloggerService.getBlogger(id);
@@ -60,6 +61,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blogger")
+    @ResponseStatus(HttpStatus.OK)
     public List<BloggerDetails> getAllBloggers() {
         List<BloggerDetails> bloggerList = new ArrayList<>();
 
@@ -94,7 +96,7 @@ public class BloggerApi {
     }
 
     @PutMapping("/blog/{blog_id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public UpdateBlogResponse updateBlog(@PathVariable String blog_id, @RequestBody UpdateBlogRequest request) {
 
         blogService.updateBlog(blog_id,
@@ -112,6 +114,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blog/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public BlogDetails getBlog(@PathVariable String id) {
 
         Blog blog = blogService.getBlog(id);
@@ -127,6 +130,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blog")
+    @ResponseStatus(HttpStatus.OK)
     public List<BlogDetails> getAllBlogs() {
         List<BlogDetails> blogList = new ArrayList<>();
 
@@ -144,6 +148,7 @@ public class BloggerApi {
     }
 
     @GetMapping("/blog/blogger/{blogger_id}")
+    @ResponseStatus(HttpStatus.OK)
     public List<BlogDetails> getAllBlogsByBlogger(@PathVariable String blogger_id) {
 
         List<BlogDetails> blogList = new ArrayList<>();
